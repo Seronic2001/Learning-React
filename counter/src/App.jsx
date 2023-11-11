@@ -8,20 +8,16 @@ function App() {
     setCounter((counter + 1) % 20)
   }
   const DecreaseCount = () => {
-    if(counter<=0)
-       counter = 0;
-    else
-        counter = counter - 1;
-    setCounter(counter)
+    setCounter(Math.max(0,((counter - 1) % 20)))
   }
 
   return (
     <>
       <h1>This is a Counter Page</h1>
       <h2>Counter: {counter}</h2>
-      <button onClick={AddCount}>Add (+) : {counter}</button>
+      <button onClick={AddCount}>Add (+ 1) : {counter}</button>
       <br />
-      <button onClick={DecreaseCount}>Subract (-) : {counter}</button>
+      <button onClick={DecreaseCount}>Subract (- 1) : {counter}</button>
     </>
   )
 }
